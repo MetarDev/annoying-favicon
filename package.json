@@ -1,0 +1,22 @@
+{
+  "name": "annoying-favicon",
+  "version": "0.0.1",
+  "description": "A JS package for programatically manipulating your app's favicon and title.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MetarDev/annoying-favicon.git"
+  },
+  "keywords": [
+    "favicon"
+  ],
+  "author": "Ivan Grginov (https://metar.dev/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MetarDev/annoying-favicon/issues"
+  },
+  "homepage": "https://github.com/MetarDev/annoying-favicon#readme"
+}
