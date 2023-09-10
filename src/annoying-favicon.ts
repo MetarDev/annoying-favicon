@@ -9,7 +9,11 @@ declare global {
 	interface Window { AnnoyingFavicon: AnnoyingFavicon; }
 }
 
-window.AnnoyingFavicon = window.AnnoyingFavicon || {};
+window.AnnoyingFavicon = window.AnnoyingFavicon || {
+	originalTitle: document.title,
+	focusCallbacks: [],
+	blurCallbacks: [],
+};
 
 export {
 	swapFavicon,

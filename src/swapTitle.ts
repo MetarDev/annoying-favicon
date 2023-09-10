@@ -1,5 +1,4 @@
 import { SwapTitleProps } from "./Interfaces/SwapTitleProps";
-import { saveOriginalTitle } from "./helpers/saveOriginalTitle";
 import { resetTitle } from "./resetTitle";
 
 /**
@@ -18,8 +17,6 @@ export const swapTitle = ({
 	reset = 'none',
 	resetAfterMs = 3000,
 }: SwapTitleProps) => {
-	saveOriginalTitle();
-
 	if (when === "now") {
 		document.title = title;
 	}
