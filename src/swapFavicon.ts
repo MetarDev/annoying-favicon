@@ -29,12 +29,12 @@ export const swapFavicon = ({
         break;
       case "onblur":
         window.AnnoyingFavicon.blurCallbacks.push(() =>
-          swapFavicon({ favicon })
+          swapFavicon({ favicon }),
         );
         break;
       case "onfocus":
         window.AnnoyingFavicon.focusCallbacks.push(() =>
-          swapFavicon({ favicon })
+          swapFavicon({ favicon }),
         );
         break;
     }

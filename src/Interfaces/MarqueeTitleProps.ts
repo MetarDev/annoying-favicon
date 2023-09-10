@@ -1,4 +1,4 @@
 export interface MarqueeTitleProps {
-	title: string;
-	interval?: number;
+  title: string;
+  interval?: number;
 }

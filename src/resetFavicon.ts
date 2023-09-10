@@ -5,6 +5,6 @@
  */
 export const resetFavicon = () => {
   document.querySelectorAll("link[rel='icon']").forEach((link: any) => {
-		link.href = link.getAttribute('data-original-href') || link.href;
+    link.href = link.getAttribute("data-original-href") || link.href;
   });
 };

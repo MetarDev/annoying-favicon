@@ -5,7 +5,7 @@
  * @returns
  */
 export const saveOriginalFavicon = (linkElem: HTMLLinkElement) => {
-	if (linkElem.getAttribute('data-original-href') === null) {
-		linkElem.setAttribute('data-original-href', linkElem.href);
-	}
+  if (linkElem.getAttribute("data-original-href") === null) {
+    linkElem.setAttribute("data-original-href", linkElem.href);
+  }
 };
