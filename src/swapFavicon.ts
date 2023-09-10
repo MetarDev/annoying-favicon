@@ -13,39 +13,50 @@ import { resetFavicon } from "./resetFavicon";
  * @param param0.resetAfterMs Used only with reset === 'after'. The number of milliseconds to wait before resetting the favicon.
  */
 export const swapFavicon = ({
-	favicon,
-	when = 'now',
-	reset = 'none',
-	resetAfterMs = 3000,
+  favicon,
+  when = "now",
+  reset = "none",
+  resetAfterMs = 3000,
 }: SwapFaviconProps) => {
   const links = document.querySelectorAll("link[rel='icon']");
-	
+
   links.forEach((link: any) => {
-		saveOriginalFavicon(link);
-    if (when === "now") {
-      link.href = getFaviconHref(favicon);
+    saveOriginalFavicon(link);
+
+    switch (when) {
+      case "now":
+        link.href = getFaviconHref(favicon);
+        break;
+      case "onblur":
+        window.AnnoyingFavicon.blurCallbacks.push(() =>
+          swapFavicon({ favicon })
+        );
+        break;
+      case "onfocus":
+        window.AnnoyingFavicon.focusCallbacks.push(() =>
+          swapFavicon({ favicon })
+        );
+        break;
     }
 
-		if (when === 'onblur') {
-			// Probably need some global event handler (setup as soon as your import this file) to handle this.
-		}
+    switch (reset) {
+      case "onblur":
+        window.AnnoyingFavicon.blurCallbacks.push(() => resetFavicon());
+        break;
+      case "onfocus":
+        window.AnnoyingFavicon.focusCallbacks.push(() => resetFavicon());
+        break;
+      case "after":
+        setTimeout(() => {
+          resetFavicon();
+        }, resetAfterMs);
+        break;
+    }
 
-		if (when === 'onfocus') {
-			// Probably need some global event handler (setup as soon as your import this file) to handle this.
-		}
-
-		if (reset === 'onfocus') {
-			// Probably need some global event handler (setup as soon as your import this file) to handle this.
-		}
-
-		if (reset === 'onblur') {
-			// Probably need some global event handler (setup as soon as your import this file) to handle this.
-		}
-
-		if (reset === 'after') {
-			setTimeout(() => {
-				resetFavicon();
-			}, resetAfterMs);
-		}
+    if (reset === "after") {
+      setTimeout(() => {
+        resetFavicon();
+      }, resetAfterMs);
+    }
   });
 };

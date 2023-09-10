@@ -15,6 +15,18 @@ window.AnnoyingFavicon = window.AnnoyingFavicon || {
 	blurCallbacks: [],
 };
 
+window.addEventListener('focus', () => {
+	window.AnnoyingFavicon.focusCallbacks.forEach((callback, i) => {
+		callback();
+	});
+});
+
+window.addEventListener('blur', () => {
+	window.AnnoyingFavicon.blurCallbacks.forEach((callback, i) => {
+		callback();
+	});
+});
+
 export {
 	swapFavicon,
 	swapTitle,

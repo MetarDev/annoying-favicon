@@ -12,34 +12,34 @@ import { resetTitle } from "./resetTitle";
 
  */
 export const swapTitle = ({
-	title,
-	when = 'now',
-	reset = 'none',
-	resetAfterMs = 3000,
+  title,
+  when = "now",
+  reset = "none",
+  resetAfterMs = 3000,
 }: SwapTitleProps) => {
-	if (when === "now") {
-		document.title = title;
-	}
+  switch (when) {
+    case "now":
+      document.title = title;
+      break;
+    case "onblur":
+      window.AnnoyingFavicon.blurCallbacks.push(() => swapTitle({ title }));
+      break;
+    case "onfocus":
+      window.AnnoyingFavicon.focusCallbacks.push(() => swapTitle({ title }));
+      break;
+  }
 
-	if (when === 'onblur') {
-		// Probably need some global event handler (setup as soon as your import this file) to handle this.
-	}
-
-	if (when === 'onfocus') {
-		// Probably need some global event handler (setup as soon as your import this file) to handle this.
-	}
-
-	if (reset === 'onfocus') {
-		// Probably need some global event handler (setup as soon as your import this file) to handle this.
-	}
-
-	if (reset === 'onblur') {
-		// Probably need some global event handler (setup as soon as your import this file) to handle this.
-	}
-
-	if (reset === 'after') {
-		setTimeout(() => {
-			resetTitle();
-		}, resetAfterMs);
-	}
+  switch (reset) {
+    case "onblur":
+      window.AnnoyingFavicon.blurCallbacks.push(() => resetTitle());
+      break;
+    case "onfocus":
+      window.AnnoyingFavicon.focusCallbacks.push(() => resetTitle());
+      break;
+    case "after":
+      setTimeout(() => {
+        resetTitle();
+      }, resetAfterMs);
+      break;
+  }
 };
