@@ -1,23 +1,23 @@
 {
   "name": "annoying-favicon",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A JS package for programatically manipulating your app's favicon and title.",
-	"source": "src/annoying-favicon.ts",            
-	"main": "./dist/annoying-favicon.cjs", 
+  "source": "src/annoying-favicon.ts",
+  "main": "./dist/annoying-favicon.cjs",
   "exports": {
-		"types": "./dist/types/annoying-favicon.d.ts",
-		"require": "./dist/annoying-favicon.cjs",
+    "types": "./dist/types/annoying-favicon.d.ts",
+    "require": "./dist/annoying-favicon.cjs",
     "default": "./dist/annoying-favicon.modern.mjs"
   },
   "module": "./dist/annoying-favicon.module.mjs",
-	"types": "./dist/types/annoying-favicon.d.ts",
-	"typings": "./dist/annoying-favicon.d.ts",
+  "types": "./dist/types/annoying-favicon.d.ts",
+  "typings": "./dist/annoying-favicon.d.ts",
   "scripts": {
     "test": "test",
-		"clean": "rm -rf ./dist",
+    "clean": "rm -rf ./dist",
     "dev": "microbundle watch",
-    "build": "npm run clean && tsc && microbundle",
-		"prepack": "npm run build"
+    "build": "npm run clean && microbundle",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -26,7 +26,12 @@
   "keywords": [
     "favicon"
   ],
-	"files": ["dist", "LICENSE", "README.md", "package.json"],
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
   "author": "Ivan Grginov (https://metar.dev/)",
   "license": "MIT",
   "bugs": {
@@ -34,6 +39,7 @@
   },
   "homepage": "https://github.com/MetarDev/annoying-favicon#readme",
   "devDependencies": {
+    "prettier": "3.0.3",
     "typescript": "^5.2.2"
   }
 }
