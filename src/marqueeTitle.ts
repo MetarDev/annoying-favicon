@@ -1,4 +1,5 @@
 import { MarqueeTitleProps } from "./Interfaces/MarqueeTitleProps";
+import { saveOriginalTitle } from "./helpers/saveOriginalTitle";
 
 /**
  * Marquee the page title.
@@ -9,6 +10,7 @@ import { MarqueeTitleProps } from "./Interfaces/MarqueeTitleProps";
  * @returns Interval ID
  */
 export const marqueeTitle = ({ title, interval = 300 }: MarqueeTitleProps) => {
+	saveOriginalTitle();
   document.title = `${title.trim()} `;
   let counter = 0;
 
