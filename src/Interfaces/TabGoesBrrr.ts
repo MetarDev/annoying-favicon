@@ -1,4 +1,4 @@
-export interface AnnoyingFavicon {
+export interface TabGoesBrrr {
   originalTitle: string;
   focusCallbacks: CallableFunction[];
   blurCallbacks: CallableFunction[];

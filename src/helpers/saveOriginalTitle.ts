@@ -4,7 +4,7 @@
  * @returns
  */
 export const saveOriginalTitle = () => {
-  if (!window.AnnoyingFavicon.originalTitle) {
-    window.AnnoyingFavicon.originalTitle = document.title;
+  if (!window.TabGoesBrrr.originalTitle) {
+    window.TabGoesBrrr.originalTitle = document.title;
   }
 };

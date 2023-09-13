@@ -5,14 +5,14 @@
  */
 export const resetTitle = () => {
   if (
-    window.AnnoyingFavicon.originalTitle &&
-    window.AnnoyingFavicon.originalTitle !== document.title
+    window.TabGoesBrrr.originalTitle &&
+    window.TabGoesBrrr.originalTitle !== document.title
   ) {
-    document.title = window.AnnoyingFavicon.originalTitle;
+    document.title = window.TabGoesBrrr.originalTitle;
   }
 
-	if (window.AnnoyingFavicon.marqueeTitleInterval) {
-		clearInterval(window.AnnoyingFavicon.marqueeTitleInterval);
-		window.AnnoyingFavicon.marqueeTitleInterval = null;
+	if (window.TabGoesBrrr.marqueeTitleInterval) {
+		clearInterval(window.TabGoesBrrr.marqueeTitleInterval);
+		window.TabGoesBrrr.marqueeTitleInterval = null;
 	}
 };
