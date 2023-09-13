@@ -11,23 +11,34 @@ import { resetTitle } from "./resetTitle";
  * @returns Interval ID
  */
 export const marqueeTitle = ({ title, interval = 300 }: MarqueeTitleProps) => {
-	resetTitle();
-	saveOriginalTitle();
-  document.title = `${title.trim()} `;
+  resetTitle();
+  saveOriginalTitle();
+  const fixedTitle = `${title.trim()} `;
   let counter = 0;
-
-	const titleInterval = setInterval(() => {
-    document.title = `${title.substring(
+  const titleInterval = setInterval(() => {
+    let newTitle = `${fixedTitle.substring(
       counter,
-      title.length,
-    )} ${title.substring(0, counter)}`;
+      fixedTitle.length,
+    )} ${fixedTitle.substring(0, counter)}`;
     counter++;
-    if (counter >= title.length) {
+    if (counter >= fixedTitle.length) {
       counter = 0;
     }
+
+    // If the first character is a space, just remove it and advance the counter since document title strips
+		// any preceding spaces. Also we need to advance the counter since we're removing a character, otherwise
+		// the animations seems to hang on the first letter of the word for 1 interval tick.
+    if (newTitle[0] === " ") {
+      newTitle = `${newTitle.substring(1, newTitle.length)}`;
+      counter++;
+    }
+
+    // requestAnimationFrame(() => {
+      document.title = newTitle;
+    // });
   }, interval);
 
-	window.AnnoyingFavicon.marqueeTitleInterval = titleInterval;
+  window.TabGoesBrrr.marqueeTitleInterval = titleInterval;
 
   return interval;
 };
