@@ -15,6 +15,7 @@ window.AnnoyingFavicon = window.AnnoyingFavicon || {
   originalTitle: document.title,
   focusCallbacks: [],
   blurCallbacks: [],
+	marqueeTitleInterval: null,
 };
 
 window.addEventListener("focus", () => {

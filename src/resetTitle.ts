@@ -10,4 +10,9 @@ export const resetTitle = () => {
   ) {
     document.title = window.AnnoyingFavicon.originalTitle;
   }
+
+	if (window.AnnoyingFavicon.marqueeTitleInterval) {
+		clearInterval(window.AnnoyingFavicon.marqueeTitleInterval);
+		window.AnnoyingFavicon.marqueeTitleInterval = null;
+	}
 };

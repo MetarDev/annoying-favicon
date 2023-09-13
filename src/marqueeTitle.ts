@@ -1,5 +1,6 @@
 import { MarqueeTitleProps } from "./Interfaces/MarqueeTitleProps";
 import { saveOriginalTitle } from "./helpers/saveOriginalTitle";
+import { resetTitle } from "./resetTitle";
 
 /**
  * Marquee the page title.
@@ -10,11 +11,12 @@ import { saveOriginalTitle } from "./helpers/saveOriginalTitle";
  * @returns Interval ID
  */
 export const marqueeTitle = ({ title, interval = 300 }: MarqueeTitleProps) => {
+	resetTitle();
 	saveOriginalTitle();
   document.title = `${title.trim()} `;
   let counter = 0;
 
-  return setInterval(() => {
+	const titleInterval = setInterval(() => {
     document.title = `${title.substring(
       counter,
       title.length,
@@ -24,4 +26,8 @@ export const marqueeTitle = ({ title, interval = 300 }: MarqueeTitleProps) => {
       counter = 0;
     }
   }, interval);
+
+	window.AnnoyingFavicon.marqueeTitleInterval = titleInterval;
+
+  return interval;
 };
