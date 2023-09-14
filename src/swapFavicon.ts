@@ -1,7 +1,13 @@
-import { SwapFaviconProps } from "./Interfaces/SwapFaviconProps";
 import { getFaviconHref } from "./helpers/getFaviconHref";
 import { saveOriginalFavicon } from "./helpers/saveOriginalFavicon";
 import { resetFavicon } from "./resetFavicon";
+
+export interface SwapFaviconProps {
+  favicon: string;
+	when?: "now" | "onfocus" | "onblur";
+  reset?: "none" | "after" | "onfocus" | "onblur";
+  resetAfterMs?: number;
+}
 
 /**
  * Changes the favicon of the page.

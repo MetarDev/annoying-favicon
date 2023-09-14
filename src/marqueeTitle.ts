@@ -1,6 +1,10 @@
-import { MarqueeTitleProps } from "./Interfaces/MarqueeTitleProps";
 import { saveOriginalTitle } from "./helpers/saveOriginalTitle";
 import { resetTitle } from "./resetTitle";
+
+export interface MarqueeTitleProps {
+  title: string;
+  interval?: number;
+}
 
 /**
  * Marquee the page title.

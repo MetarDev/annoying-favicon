@@ -1,6 +1,12 @@
-import { SwapTitleProps } from "./Interfaces/SwapTitleProps";
 import { saveOriginalTitle } from "./helpers/saveOriginalTitle";
 import { resetTitle } from "./resetTitle";
+
+export interface SwapTitleProps {
+  title: string;
+	when?: "now" | "onfocus" | "onblur";
+  reset?: "none" | "after" | "onfocus" | "onblur";
+  resetAfterMs?: number;
+}
 
 /**
  * Changes the title of the page.

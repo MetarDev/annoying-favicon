@@ -2,16 +2,16 @@
   "name": "tabky-js",
   "version": "0.1.0",
   "description": "A JS package for programatically manipulating your app's browser tab (favicon and title).",
-  "source": "src/tabky-js.ts",
-  "main": "./dist/tabky-js.cjs",
+  "source": "src/index.ts",
+  "main": "./dist/tabky-js.js",
   "exports": {
-    "types": "./dist/types/tabky-js.d.ts",
-    "require": "./dist/tabky-js.cjs",
+    "types": "./dist/types/index.d.ts",
+    "require": "./dist/tabky-js.js",
     "default": "./dist/tabky-js.modern.mjs"
   },
   "module": "./dist/tabky-js.module.mjs",
-  "types": "./dist/types/tabky-js.d.ts",
-  "typings": "./dist/tabky-js.d.ts",
+  "types": "./dist/types/index.d.ts",
+  "typings": "./dist/types/index.d.ts",
   "scripts": {
     "test": "test",
     "clean": "rm -rf ./dist",
