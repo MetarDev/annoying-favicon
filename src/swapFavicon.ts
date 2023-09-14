@@ -1,7 +1,13 @@
-import { SwapFaviconProps } from "./Interfaces/SwapFaviconProps";
 import { getFaviconHref } from "./helpers/getFaviconHref";
 import { saveOriginalFavicon } from "./helpers/saveOriginalFavicon";
 import { resetFavicon } from "./resetFavicon";
+
+export interface SwapFaviconProps {
+  favicon: string;
+	when?: "now" | "onfocus" | "onblur";
+  reset?: "none" | "after" | "onfocus" | "onblur";
+  resetAfterMs?: number;
+}
 
 /**
  * Changes the favicon of the page.
@@ -28,12 +34,12 @@ export const swapFavicon = ({
         link.href = getFaviconHref(favicon);
         break;
       case "onblur":
-        window.AnnoyingFavicon.blurCallbacks.push(() =>
+        window.TabkyJs.blurCallbacks.push(() =>
           swapFavicon({ favicon }),
         );
         break;
       case "onfocus":
-        window.AnnoyingFavicon.focusCallbacks.push(() =>
+        window.TabkyJs.focusCallbacks.push(() =>
           swapFavicon({ favicon }),
         );
         break;
@@ -41,10 +47,10 @@ export const swapFavicon = ({
 
     switch (reset) {
       case "onblur":
-        window.AnnoyingFavicon.blurCallbacks.push(() => resetFavicon());
+        window.TabkyJs.blurCallbacks.push(() => resetFavicon());
         break;
       case "onfocus":
-        window.AnnoyingFavicon.focusCallbacks.push(() => resetFavicon());
+        window.TabkyJs.focusCallbacks.push(() => resetFavicon());
         break;
       case "after":
         setTimeout(() => {

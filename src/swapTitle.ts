@@ -1,5 +1,12 @@
-import { SwapTitleProps } from "./Interfaces/SwapTitleProps";
+import { saveOriginalTitle } from "./helpers/saveOriginalTitle";
 import { resetTitle } from "./resetTitle";
+
+export interface SwapTitleProps {
+  title: string;
+	when?: "now" | "onfocus" | "onblur";
+  reset?: "none" | "after" | "onfocus" | "onblur";
+  resetAfterMs?: number;
+}
 
 /**
  * Changes the title of the page.
@@ -17,24 +24,25 @@ export const swapTitle = ({
   reset = "none",
   resetAfterMs = 3000,
 }: SwapTitleProps) => {
+	saveOriginalTitle();
   switch (when) {
     case "now":
       document.title = title;
       break;
     case "onblur":
-      window.AnnoyingFavicon.blurCallbacks.push(() => swapTitle({ title }));
+      window.TabkyJs.blurCallbacks.push(() => swapTitle({ title }));
       break;
     case "onfocus":
-      window.AnnoyingFavicon.focusCallbacks.push(() => swapTitle({ title }));
+      window.TabkyJs.focusCallbacks.push(() => swapTitle({ title }));
       break;
   }
 
   switch (reset) {
     case "onblur":
-      window.AnnoyingFavicon.blurCallbacks.push(() => resetTitle());
+      window.TabkyJs.blurCallbacks.push(() => resetTitle());
       break;
     case "onfocus":
-      window.AnnoyingFavicon.focusCallbacks.push(() => resetTitle());
+      window.TabkyJs.focusCallbacks.push(() => resetTitle());
       break;
     case "after":
       setTimeout(() => {

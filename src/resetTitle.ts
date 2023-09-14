@@ -5,9 +5,14 @@
  */
 export const resetTitle = () => {
   if (
-    window.AnnoyingFavicon.originalTitle &&
-    window.AnnoyingFavicon.originalTitle !== document.title
+    window.TabkyJs.originalTitle &&
+    window.TabkyJs.originalTitle !== document.title
   ) {
-    document.title = window.AnnoyingFavicon.originalTitle;
+    document.title = window.TabkyJs.originalTitle;
   }
+
+	if (window.TabkyJs.marqueeTitleInterval) {
+		clearInterval(window.TabkyJs.marqueeTitleInterval);
+		window.TabkyJs.marqueeTitleInterval = null;
+	}
 };
