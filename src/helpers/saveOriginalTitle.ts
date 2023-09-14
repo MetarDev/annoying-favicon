@@ -4,7 +4,7 @@
  * @returns
  */
 export const saveOriginalTitle = () => {
-  if (!window.TabGoesBrrr.originalTitle) {
-    window.TabGoesBrrr.originalTitle = document.title;
+  if (!window.TabkyJs.originalTitle) {
+    window.TabkyJs.originalTitle = document.title;
   }
 };

@@ -5,14 +5,14 @@
  */
 export const resetTitle = () => {
   if (
-    window.TabGoesBrrr.originalTitle &&
-    window.TabGoesBrrr.originalTitle !== document.title
+    window.TabkyJs.originalTitle &&
+    window.TabkyJs.originalTitle !== document.title
   ) {
-    document.title = window.TabGoesBrrr.originalTitle;
+    document.title = window.TabkyJs.originalTitle;
   }
 
-	if (window.TabGoesBrrr.marqueeTitleInterval) {
-		clearInterval(window.TabGoesBrrr.marqueeTitleInterval);
-		window.TabGoesBrrr.marqueeTitleInterval = null;
+	if (window.TabkyJs.marqueeTitleInterval) {
+		clearInterval(window.TabkyJs.marqueeTitleInterval);
+		window.TabkyJs.marqueeTitleInterval = null;
 	}
 };

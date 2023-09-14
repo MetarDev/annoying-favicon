@@ -1,4 +1,4 @@
-export interface TabGoesBrrr {
+export interface TabkyJs {
   originalTitle: string;
   focusCallbacks: CallableFunction[];
   blurCallbacks: CallableFunction[];

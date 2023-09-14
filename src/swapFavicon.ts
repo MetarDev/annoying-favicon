@@ -28,12 +28,12 @@ export const swapFavicon = ({
         link.href = getFaviconHref(favicon);
         break;
       case "onblur":
-        window.TabGoesBrrr.blurCallbacks.push(() =>
+        window.TabkyJs.blurCallbacks.push(() =>
           swapFavicon({ favicon }),
         );
         break;
       case "onfocus":
-        window.TabGoesBrrr.focusCallbacks.push(() =>
+        window.TabkyJs.focusCallbacks.push(() =>
           swapFavicon({ favicon }),
         );
         break;
@@ -41,10 +41,10 @@ export const swapFavicon = ({
 
     switch (reset) {
       case "onblur":
-        window.TabGoesBrrr.blurCallbacks.push(() => resetFavicon());
+        window.TabkyJs.blurCallbacks.push(() => resetFavicon());
         break;
       case "onfocus":
-        window.TabGoesBrrr.focusCallbacks.push(() => resetFavicon());
+        window.TabkyJs.focusCallbacks.push(() => resetFavicon());
         break;
       case "after":
         setTimeout(() => {

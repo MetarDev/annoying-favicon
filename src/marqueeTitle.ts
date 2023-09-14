@@ -38,7 +38,7 @@ export const marqueeTitle = ({ title, interval = 300 }: MarqueeTitleProps) => {
     // });
   }, interval);
 
-  window.TabGoesBrrr.marqueeTitleInterval = titleInterval;
+  window.TabkyJs.marqueeTitleInterval = titleInterval;
 
   return interval;
 };

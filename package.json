@@ -1,17 +1,17 @@
 {
-  "name": "tab-goes-brrr",
+  "name": "tabky-js",
   "version": "0.1.0",
   "description": "A JS package for programatically manipulating your app's browser tab (favicon and title).",
-  "source": "src/tab-goes-brrr.ts",
-  "main": "./dist/tab-goes-brrr.cjs",
+  "source": "src/tabky-js.ts",
+  "main": "./dist/tabky-js.cjs",
   "exports": {
-    "types": "./dist/types/tab-goes-brrr.d.ts",
-    "require": "./dist/tab-goes-brrr.cjs",
-    "default": "./dist/tab-goes-brrr.modern.mjs"
+    "types": "./dist/types/tabky-js.d.ts",
+    "require": "./dist/tabky-js.cjs",
+    "default": "./dist/tabky-js.modern.mjs"
   },
-  "module": "./dist/tab-goes-brrr.module.mjs",
-  "types": "./dist/types/tab-goes-brrr.d.ts",
-  "typings": "./dist/tab-goes-brrr.d.ts",
+  "module": "./dist/tabky-js.module.mjs",
+  "types": "./dist/types/tabky-js.d.ts",
+  "typings": "./dist/tabky-js.d.ts",
   "scripts": {
     "test": "test",
     "clean": "rm -rf ./dist",
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MetarDev/tab-goes-brrr.git"
+    "url": "git+https://github.com/MetarDev/tabky-js.git"
   },
   "keywords": [
     "favicon"
@@ -35,9 +35,9 @@
   "author": "Ivan Grginov (https://metar.dev/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/MetarDev/tab-goes-brrr/issues"
+    "url": "https://github.com/MetarDev/tabky-js/issues"
   },
-  "homepage": "https://github.com/MetarDev/tab-goes-brrr#readme",
+  "homepage": "https://github.com/MetarDev/tabky-js#readme",
   "devDependencies": {
     "microbundle": "^0.15.1",
     "prettier": "3.0.3",

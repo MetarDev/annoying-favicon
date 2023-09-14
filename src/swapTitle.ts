@@ -24,19 +24,19 @@ export const swapTitle = ({
       document.title = title;
       break;
     case "onblur":
-      window.TabGoesBrrr.blurCallbacks.push(() => swapTitle({ title }));
+      window.TabkyJs.blurCallbacks.push(() => swapTitle({ title }));
       break;
     case "onfocus":
-      window.TabGoesBrrr.focusCallbacks.push(() => swapTitle({ title }));
+      window.TabkyJs.focusCallbacks.push(() => swapTitle({ title }));
       break;
   }
 
   switch (reset) {
     case "onblur":
-      window.TabGoesBrrr.blurCallbacks.push(() => resetTitle());
+      window.TabkyJs.blurCallbacks.push(() => resetTitle());
       break;
     case "onfocus":
-      window.TabGoesBrrr.focusCallbacks.push(() => resetTitle());
+      window.TabkyJs.focusCallbacks.push(() => resetTitle());
       break;
     case "after":
       setTimeout(() => {
