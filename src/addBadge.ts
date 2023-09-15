@@ -14,6 +14,7 @@ import { swapFavicon } from "./swapFavicon";
  */
 export const addBadge = ({
 	type,
+	dotSize = 'md',
   dotColor = "#ff0000",
 	innerDotColor = "#ffffff",
   position = "top-right",
@@ -24,7 +25,7 @@ export const addBadge = ({
   links.forEach((link: any) => {
     saveOriginalFavicon(link);
 
-		generateFaviconWithBadge(link, { type, dotColor, innerDotColor, position }).then((favicon) => {
+		generateFaviconWithBadge(link, { type, dotSize, dotColor, innerDotColor, position }).then((favicon) => {
 			swapFavicon({ favicon });
 		});
   });

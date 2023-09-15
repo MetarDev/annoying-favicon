@@ -10,6 +10,7 @@ type Color = RGB | RGBA | HEX | HSL;
 
 export interface GenerateFaviconWithBadgeProps {
   type: "dot" | "count";
+	dotSize: "xs" | "sm" | "md" | "lg" | "full";
   dotColor: Color;
 	innerDotColor: Color;
   position:
@@ -20,9 +21,30 @@ export interface GenerateFaviconWithBadgeProps {
     | "center";
 }
 
+/**
+ * Converts the dotSize prop to a percentage.
+ *
+ * @param size Size value to convert.
+ * @returns 
+ */
+const sizeToPercentage = (size: GenerateFaviconWithBadgeProps["dotSize"]) => {
+	switch (size) {
+		case "xs":
+			return 0.15;
+		case "sm":
+			return 0.2;
+		case "md":
+			return 0.25;
+		case "lg":
+			return 0.35;
+		case "full":
+			return 0.5;
+	}
+}
+
 export const generateFaviconWithBadge = async (
   link: HTMLLinkElement,
-  { dotColor, innerDotColor, position, type }: GenerateFaviconWithBadgeProps,
+  { type, dotSize, dotColor, innerDotColor,position }: GenerateFaviconWithBadgeProps,
 ) => {
   // Try to read size from favicon link. Use last size. If doesn't exist or "any", assume 32x32px
   // sizes = "16x16px"
@@ -54,7 +76,7 @@ export const generateFaviconWithBadge = async (
   context.drawImage(faviconImage, 0, 0, size, size, 0, 0, size, size);
 
 	// Determine the circle position based on the position prop and the circle size.
-	const dotRadius = size / 4;
+	const dotRadius = size * sizeToPercentage(dotSize);
 	const innerDotRadius = dotRadius / 4;
 	let x = 0;
 	let y = 0;
