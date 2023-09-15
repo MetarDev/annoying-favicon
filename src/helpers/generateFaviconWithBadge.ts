@@ -53,17 +53,55 @@ export const generateFaviconWithBadge = async (
   // Draw image first
   context.drawImage(faviconImage, 0, 0, size, size, 0, 0, size, size);
 
-  // Draw the circle badge, 25% the size of the favicon, at the top right corner.
+	// Determine the circle position based on the position prop and the circle size.
 	const dotRadius = size / 4;
+	const innerDotRadius = dotRadius / 4;
+	let x = 0;
+	let y = 0;
+	let innerX = 0;
+	let innerY = 0;
+	switch (position) {
+		case "top-left":
+			x = dotRadius;
+			y = dotRadius;
+			innerX = x;
+			innerY = y;
+			break;
+		case "top-right":
+			x = size - dotRadius;
+			y = dotRadius;
+			innerX = x;
+			innerY = y;
+			break;
+		case "bottom-left":
+			x = dotRadius;
+			y = size - dotRadius;
+			innerX = x;
+			innerY = y;
+			break;
+		case "bottom-right":
+			x = size - dotRadius;
+			y = size - dotRadius;
+			innerX = x;
+			innerY = y;
+			break;
+		case "center":
+			x = size / 2;
+			y = size / 2;
+			innerX = x;
+			innerY = y;
+			break;
+	}
+
+  // Draw the circle badge on the x,y coordinates.
   context.beginPath();
-  context.arc(size - dotRadius, dotRadius, dotRadius, 0, 2 * Math.PI, false);
+	context.arc(x, y, dotRadius, 0, 2 * Math.PI, false);
   context.fillStyle = dotColor;
   context.fill();
 
-  // Draw the inner circle badge, 25% the size of the favicon, inside the circle badge.
-	const innerDotRadius = dotRadius / 4;
+  // Draw the inner circle badge, inside the circle badge on innerX, innerY coordinate.
   context.beginPath();
-	context.arc(size - dotRadius, dotRadius, innerDotRadius, 0, 2 * Math.PI, false);
+	context.arc(innerX, innerY, innerDotRadius, 0, 2 * Math.PI, false);
   context.fillStyle = innerDotColor;
   context.fill();
 
