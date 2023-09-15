@@ -7,6 +7,7 @@ export interface SwapFaviconProps {
 	when?: "now" | "onfocus" | "onblur";
   reset?: "none" | "after" | "onfocus" | "onblur";
   resetAfterMs?: number;
+	emojiCompatibilityMode?: boolean;
 }
 
 /**
@@ -17,12 +18,14 @@ export interface SwapFaviconProps {
  * @param param0.when When to swap the favicon. Available options are 'now', 'onfocus', and 'onblur'.
  * @param param0.reset Reset the favicon if needed. Available options are 'none', 'after', 'onfocus', and 'onblur'.
  * @param param0.resetAfterMs Used only with reset === 'after'. The number of milliseconds to wait before resetting the favicon.
+ * @param param0.emojiCompatibilityMode If set to true, setting the emoji as favicon will draw it as a PNG image for better compatibility, (all major browsers support PNG favicons). If set to false, it will draw it as an SVG (Safari for example doesn't support it).
  */
 export const swapFavicon = ({
   favicon,
   when = "now",
   reset = "none",
   resetAfterMs = 3000,
+	emojiCompatibilityMode = true,
 }: SwapFaviconProps) => {
   const links = document.querySelectorAll("link[rel='icon']");
 
@@ -31,16 +34,16 @@ export const swapFavicon = ({
 
     switch (when) {
       case "now":
-        link.href = getFaviconHref(favicon);
+        link.href = getFaviconHref(favicon, emojiCompatibilityMode);
         break;
       case "onblur":
         window.TabkyJs.blurCallbacks.push(() =>
-          swapFavicon({ favicon }),
+          swapFavicon({ favicon, emojiCompatibilityMode }),
         );
         break;
       case "onfocus":
         window.TabkyJs.focusCallbacks.push(() =>
-          swapFavicon({ favicon }),
+          swapFavicon({ favicon, emojiCompatibilityMode }),
         );
         break;
     }
