@@ -1,3 +1,6 @@
+## 0.2.1
+- Fix wrong type on `font` property of `addBadge()`
+
 ## 0.2.0
 - Implemented `addBadge()` for adding badges / counters to the favicon
 - Added changelog
