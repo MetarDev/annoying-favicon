@@ -1,5 +1,5 @@
-import { asyncLoadImage } from "./asyncLoadImage";
-import { getCanvas } from "./getCanvas";
+import { asyncLoadImage } from "./async-load-image";
+import { getCanvas } from "./get-canvas";
 
 type RGB = `rgb(${number}, ${number}, ${number})`;
 type RGBA = `rgba(${number}, ${number}, ${number}, ${number})`;
@@ -10,13 +10,13 @@ type Color = RGB | RGBA | HEX | HSL;
 
 export interface GenerateFaviconWithBadgeProps {
   type: "dot" | "count";
-  count: number | null;
-  size: "xs" | "sm" | "md" | "lg" | "full";
-  font: "sans-serif";
-  dotColor: Color;
-  innerDotColor: Color;
-	countColor: Color;
-  position:
+  count?: number | null;
+  size?: "xs" | "sm" | "md" | "lg" | "full";
+  font?: "sans-serif";
+  dotColor?: Color;
+  innerDotColor?: Color;
+	countColor?: Color;
+  position?:
     | "top-left"
     | "top-right"
     | "bottom-left"
@@ -30,7 +30,7 @@ export interface GenerateFaviconWithBadgeProps {
  * @param size Size value to convert.
  * @returns { dot: number, fontSize: number }
  */
-const convertSize = (size: GenerateFaviconWithBadgeProps["size"]) => {
+const convertSize = (size: GenerateFaviconWithBadgeProps["size"] = 'md') => {
   switch (size) {
     case "xs":
       return {
@@ -63,14 +63,14 @@ const convertSize = (size: GenerateFaviconWithBadgeProps["size"]) => {
 export const generateFaviconWithBadge = async (
   link: HTMLLinkElement,
   {
-    type,
-    size,
-    font,
-    count,
-    dotColor,
-    innerDotColor,
-		countColor,
-    position,
+		type,
+		count = null,
+		size = 'md',
+		font = 'sans-serif',
+		dotColor = "#ff0000",
+		innerDotColor = "#ffffff",
+		countColor = "#ffffff",
+		position = "top-right",
   }: GenerateFaviconWithBadgeProps,
 ) => {
   // Try to read size from favicon link. Use last size. If doesn't exist or "any", assume 32x32px

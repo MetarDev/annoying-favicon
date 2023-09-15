@@ -1,6 +1,6 @@
-import { getFaviconHref } from "./helpers/getFaviconHref";
-import { saveOriginalFavicon } from "./helpers/saveOriginalFavicon";
-import { resetFavicon } from "./resetFavicon";
+import { getFaviconHref } from "./helpers/get-favicon-href";
+import { saveOriginalFavicon } from "./helpers/save-original-favicon";
+import { resetFavicon } from "./reset-favicon";
 
 export interface SwapFaviconProps {
   favicon: string;

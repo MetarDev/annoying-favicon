@@ -1,5 +1,5 @@
-import { convertEmojiToImage } from "./convertEmojiToImage";
-import { isEmoji } from "./isEmoji";
+import { convertEmojiToImage } from "./convert-emoji-to-image";
+import { isEmoji } from "./is-emoji";
 
 /**
  * Returns the favicon href as an SVG if emoji, or as a URL if not.

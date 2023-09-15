@@ -1,5 +1,5 @@
-import { saveOriginalTitle } from "./helpers/saveOriginalTitle";
-import { resetTitle } from "./resetTitle";
+import { saveOriginalTitle } from "./helpers/save-original-title";
+import { resetTitle } from "./reset-title";
 
 export interface SwapTitleProps {
   title: string;

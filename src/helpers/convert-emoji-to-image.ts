@@ -1,4 +1,4 @@
-import { getCanvas } from "./getCanvas";
+import { getCanvas } from "./get-canvas";
 
 export const convertEmojiToImage = (emoji: string, size = 32) => {
   const canvas = getCanvas(size);
