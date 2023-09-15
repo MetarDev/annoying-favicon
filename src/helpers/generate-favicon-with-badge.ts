@@ -12,7 +12,7 @@ export interface GenerateFaviconWithBadgeProps {
   type: "dot" | "count";
   count?: number | null;
   size?: "xs" | "sm" | "md" | "lg" | "full";
-  font?: "sans-serif";
+  font?: string;
   dotColor?: Color;
   innerDotColor?: Color;
 	countColor?: Color;
