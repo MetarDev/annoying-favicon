@@ -1,7 +1,7 @@
 
 <h1 align="center">
 	😸</br>
-	Tabky JS
+	Tabky.js
 	</h1>
 <p align="center">
 A JS package for programmatically manipulating your app's favicon and title.
