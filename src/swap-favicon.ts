@@ -1,28 +1,32 @@
-import { getFaviconHref } from "./helpers/getFaviconHref";
-import { saveOriginalFavicon } from "./helpers/saveOriginalFavicon";
-import { resetFavicon } from "./resetFavicon";
+import { getFaviconHref } from "./helpers/get-favicon-href";
+import { saveOriginalFavicon } from "./helpers/save-original-favicon";
+import { resetFavicon } from "./reset-favicon";
 
 export interface SwapFaviconProps {
   favicon: string;
 	when?: "now" | "onfocus" | "onblur";
   reset?: "none" | "after" | "onfocus" | "onblur";
   resetAfterMs?: number;
+	emojiCompatibilityMode?: boolean;
 }
 
 /**
  * Changes the favicon of the page.
  *
  * @param param0 Swap favicon props
- * @param param0.favicon The favicon URL or emoji.
- * @param param0.when When to swap the favicon. Available options are 'now', 'onfocus', and 'onblur'.
- * @param param0.reset Reset the favicon if needed. Available options are 'none', 'after', 'onfocus', and 'onblur'.
- * @param param0.resetAfterMs Used only with reset === 'after'. The number of milliseconds to wait before resetting the favicon.
+ * @param {string} param0.favicon The favicon URL or emoji.
+ * @param {string} [param0.when] When to swap the favicon. Available options are 'now', 'onfocus', and 'onblur'.
+ * @param {string} [param0.reset] Reset the favicon if needed. Available options are 'none', 'after', 'onfocus', and 'onblur'.
+ * @param {number} [param0.resetAfterMs] Used only with reset === 'after'. The number of milliseconds to wait before resetting the favicon.
+ * @param {boolean} [param0.emojiCompatibilityMode] If set to true, setting the emoji as favicon will draw it as a PNG image for better compatibility, (all major browsers support PNG favicons). If set to false, it will draw it as an SVG (Safari for example doesn't support it).
+ * @returns {void}
  */
 export const swapFavicon = ({
   favicon,
   when = "now",
   reset = "none",
   resetAfterMs = 3000,
+	emojiCompatibilityMode = true,
 }: SwapFaviconProps) => {
   const links = document.querySelectorAll("link[rel='icon']");
 
@@ -31,16 +35,16 @@ export const swapFavicon = ({
 
     switch (when) {
       case "now":
-        link.href = getFaviconHref(favicon);
+        link.href = getFaviconHref(favicon, emojiCompatibilityMode);
         break;
       case "onblur":
         window.TabkyJs.blurCallbacks.push(() =>
-          swapFavicon({ favicon }),
+          swapFavicon({ favicon, emojiCompatibilityMode }),
         );
         break;
       case "onfocus":
         window.TabkyJs.focusCallbacks.push(() =>
-          swapFavicon({ favicon }),
+          swapFavicon({ favicon, emojiCompatibilityMode }),
         );
         break;
     }

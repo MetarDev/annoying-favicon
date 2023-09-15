@@ -1,7 +1,7 @@
 
 <h1 align="center">
 	😸</br>
-	Tabky JS
+	Tabky.js
 	</h1>
 <p align="center">
 A JS package for programmatically manipulating your app's favicon and title.
@@ -24,7 +24,6 @@ You can use it to make your favicon / title dynamically react to what's happenin
 - A way to annoy your users.
 
 ## Installation
-
 ```
 npm install tabky-js
 ```
@@ -33,9 +32,23 @@ npm install tabky-js
 
 [View Demo](https://tabky.dev)
 
+## Typescript support
+
+This library is written in Typescript and has full Typescript support. It's also bundled with JSDoc comments, so you should have full intellisense support in your IDE regardless.
+
+## Browser support
+
+Works in all major browsers except Safari (Swapping favicons dynamically does not work on Safari (see https://stackoverflow.com/a/66099108/)13363739).
+
+Also while it should work on mobile browsers, it less useful there as the browser tab (favicon + title) isn't really visible to user all the time.
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
+
+## Changelog
+
+[View Changelog](/CHANGELOG.md)
 
 ### Contact
 

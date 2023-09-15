@@ -1,8 +1,9 @@
-import { swapFavicon } from "./swapFavicon";
-import { swapTitle } from "./swapTitle";
-import { marqueeTitle } from "./marqueeTitle";
-import { resetTitle } from "./resetTitle";
-import { resetFavicon } from "./resetFavicon";
+import { swapFavicon } from "./swap-favicon";
+import { swapTitle } from "./swap-title";
+import { marqueeTitle } from "./marquee-title";
+import { resetTitle } from "./reset-title";
+import { resetFavicon } from "./reset-favicon";
+import { addBadge } from "./add-badge";
 
 interface TabkyJs {
   originalTitle: string;
@@ -44,5 +45,6 @@ export {
   resetTitle,
   resetFavicon,
   marqueeTitle,
+	addBadge,
   TabkyJs,
 };

@@ -1,9 +1,9 @@
-import { saveOriginalTitle } from "./helpers/saveOriginalTitle";
-import { resetTitle } from "./resetTitle";
+import { saveOriginalTitle } from "./helpers/save-original-title";
+import { resetTitle } from "./reset-title";
 
 export interface SwapTitleProps {
   title: string;
-	when?: "now" | "onfocus" | "onblur";
+  when?: "now" | "onfocus" | "onblur";
   reset?: "none" | "after" | "onfocus" | "onblur";
   resetAfterMs?: number;
 }
@@ -12,11 +12,11 @@ export interface SwapTitleProps {
  * Changes the title of the page.
  *
  * @param param0 Swap title props
- * @param param0.title The title to set.
- * @param param0.when When to swap the title. Available options are 'now', 'onfocus', and 'onblur'.
- * @param param0.reset Reset the title if needed. Available options are 'none', 'after', 'onfocus', and 'onblur'.
- * @param param0.resetAfterMs Used only with reset === 'after'. The number of milliseconds to wait before resetting the title.
-
+ * @param {string} param0.title The title to set.
+ * @param {string} [param0.when] When to swap the title. Available options are 'now', 'onfocus', and 'onblur'.
+ * @param {string} [param0.reset] Reset the title if needed. Available options are 'none', 'after', 'onfocus', and 'onblur'.
+ * @param {number} [param0.resetAfterMs] Used only with reset === 'after'. The number of milliseconds to wait before resetting the title.
+ * @returns {void}
  */
 export const swapTitle = ({
   title,
@@ -24,9 +24,10 @@ export const swapTitle = ({
   reset = "none",
   resetAfterMs = 3000,
 }: SwapTitleProps) => {
-	saveOriginalTitle();
+  saveOriginalTitle();
   switch (when) {
     case "now":
+      resetTitle();
       document.title = title;
       break;
     case "onblur":
