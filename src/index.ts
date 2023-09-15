@@ -3,6 +3,7 @@ import { swapTitle } from "./swapTitle";
 import { marqueeTitle } from "./marqueeTitle";
 import { resetTitle } from "./resetTitle";
 import { resetFavicon } from "./resetFavicon";
+import { addBadge } from "./addBadge";
 
 interface TabkyJs {
   originalTitle: string;
@@ -44,5 +45,6 @@ export {
   resetTitle,
   resetFavicon,
   marqueeTitle,
+	addBadge,
   TabkyJs,
 };
