@@ -24,7 +24,6 @@ You can use it to make your favicon / title dynamically react to what's happenin
 - A way to annoy your users.
 
 ## Installation
-
 ```
 npm install tabky-js
 ```
@@ -32,6 +31,10 @@ npm install tabky-js
 ## Usage / API / Documentation
 
 [View Demo](https://tabky.dev)
+
+## Typescript support
+
+This library is written in Typescript and has full Typescript support. It's also bundled with JSDoc comments, so you should have full intellisense support in your IDE regardless.
 
 ## Browser support
 
