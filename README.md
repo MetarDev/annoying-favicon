@@ -37,6 +37,10 @@ npm install tabky-js
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
+## Changelog
+
+[View Changelog](/CHANGELOG.md)
+
 ### Contact
 
 Created / maintained by Ivan Grginov [@MetarDev](https://twitter.com/MetarDev)
