@@ -33,6 +33,12 @@ npm install tabky-js
 
 [View Demo](https://tabky.dev)
 
+## Browser support
+
+Works in all major browsers except Safari (Swapping favicons dynamically does not work on Safari (see https://stackoverflow.com/a/66099108/)13363739).
+
+Also while it should work on mobile browsers, it less useful there as the browser tab (favicon + title) isn't really visible to user all the time.
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
