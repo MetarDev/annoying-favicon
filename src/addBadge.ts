@@ -14,9 +14,12 @@ import { swapFavicon } from "./swapFavicon";
  */
 export const addBadge = ({
 	type,
-	dotSize = 'md',
+	count = null,
+	size = 'md',
+	font = 'sans-serif',
   dotColor = "#ff0000",
 	innerDotColor = "#ffffff",
+	countColor = "#ffffff",
   position = "top-right",
 }: GenerateFaviconWithBadgeProps) => {
   const links = document.querySelectorAll("link[rel='icon']");
@@ -25,7 +28,7 @@ export const addBadge = ({
   links.forEach((link: any) => {
     saveOriginalFavicon(link);
 
-		generateFaviconWithBadge(link, { type, dotSize, dotColor, innerDotColor, position }).then((favicon) => {
+		generateFaviconWithBadge(link, { type, size, count, font, dotColor, innerDotColor, countColor, position }).then((favicon) => {
 			swapFavicon({ favicon });
 		});
   });
