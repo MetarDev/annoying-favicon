@@ -27,6 +27,7 @@ export const swapTitle = ({
 	saveOriginalTitle();
   switch (when) {
     case "now":
+			resetTitle();
       document.title = title;
       break;
     case "onblur":
