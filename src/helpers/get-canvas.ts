@@ -1,6 +1,10 @@
-export const getCanvas = (size = 32) => {
-  let canvas: HTMLCanvasElement|null = document.querySelector(`#canvas-${size}`);
-
+export const getCanvas = (size = 32): HTMLCanvasElement => {
+	const sizeString = size.toString();
+	if (window?.TabkyJs?.canvas[sizeString]) {
+		return window.TabkyJs.canvas[sizeString];
+	}
+	
+	let canvas: HTMLCanvasElement|null = document.querySelector(`#canvas-${size}`);
 	if (!canvas) {
 		canvas = document.createElement("canvas");
 		canvas.id = `canvas-${size}`;
@@ -8,11 +12,8 @@ export const getCanvas = (size = 32) => {
 		canvas.height = size;
 		canvas.style.display = "none";
 		document.body.appendChild(canvas);
-	} else {
-		// clear canvas
-		const context = canvas.getContext("2d");
-		context?.clearRect(0, 0, canvas.width, canvas.height);
 	}
 
+	window.TabkyJs.canvas[sizeString] = canvas;
 	return canvas;
 }

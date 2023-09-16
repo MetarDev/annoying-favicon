@@ -10,6 +10,7 @@ interface TabkyJs {
   focusCallbacks: CallableFunction[];
   blurCallbacks: CallableFunction[];
   marqueeTitleInterval: ReturnType<typeof setInterval> | null;
+	canvas: { [key: string]: HTMLCanvasElement };
 }
 
 declare global {
@@ -24,6 +25,7 @@ if (typeof window !== "undefined") {
     focusCallbacks: [],
     blurCallbacks: [],
     marqueeTitleInterval: null,
+		canvas: {},
   };
 
   window.addEventListener("focus", () => {
