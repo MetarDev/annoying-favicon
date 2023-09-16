@@ -15,7 +15,7 @@ export interface GenerateFaviconWithBadgeProps {
   font?: string;
   dotColor?: Color;
   innerDotColor?: Color;
-	countColor?: Color;
+  countColor?: Color;
   position?:
     | "top-left"
     | "top-right"
@@ -31,8 +31,11 @@ export interface GenerateFaviconWithBadgeProps {
  * @param faviconSize The size of the favicon. Used to calculate the font-size, normalized to 32px
  * @returns { dot: number, fontSize: number }
  */
-const convertSize = (size: GenerateFaviconWithBadgeProps["size"] = 'md', faviconSize: number) => {
-	const multiplierFromSize = faviconSize / 32;
+const convertSize = (
+  size: GenerateFaviconWithBadgeProps["size"] = "md",
+  faviconSize: number,
+) => {
+  const multiplierFromSize = faviconSize / 32;
   switch (size) {
     case "xs":
       return {
@@ -65,14 +68,14 @@ const convertSize = (size: GenerateFaviconWithBadgeProps["size"] = 'md', favicon
 export const generateFaviconWithBadge = async (
   link: HTMLLinkElement,
   {
-		type,
-		count = null,
-		size = 'md',
-		font = 'sans-serif',
-		dotColor = "#ff0000",
-		innerDotColor = "#ffffff",
-		countColor = "#ffffff",
-		position = "top-right",
+    type,
+    count = null,
+    size = "md",
+    font = "sans-serif",
+    dotColor = "#ff0000",
+    innerDotColor = "#ffffff",
+    countColor = "#ffffff",
+    position = "top-right",
   }: GenerateFaviconWithBadgeProps,
 ) => {
   // Try to read size from favicon link. Use last size. If doesn't exist or "any", assume 32x32px
@@ -99,8 +102,8 @@ export const generateFaviconWithBadge = async (
     return "";
   }
 
-	// Clear canvas
-	context?.clearRect(0, 0, canvas.width, canvas.height);
+  // Clear canvas
+  context?.clearRect(0, 0, canvas.width, canvas.height);
 
   const faviconImage = await asyncLoadImage(link.href);
 
