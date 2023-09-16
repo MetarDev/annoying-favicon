@@ -1,3 +1,6 @@
+## 1.0.0
+- Initial release!
+
 ## 0.2.2
 
 - Store references to canvases for different sizes
