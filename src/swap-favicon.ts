@@ -4,10 +4,10 @@ import { resetFavicon } from "./reset-favicon";
 
 export interface SwapFaviconProps {
   favicon: string;
-	when?: "now" | "onfocus" | "onblur";
+  when?: "now" | "onfocus" | "onblur";
   reset?: "none" | "after" | "onfocus" | "onblur";
   resetAfterMs?: number;
-	emojiCompatibilityMode?: boolean;
+  emojiCompatibilityMode?: boolean;
 }
 
 /**
@@ -26,7 +26,7 @@ export const swapFavicon = ({
   when = "now",
   reset = "none",
   resetAfterMs = 3000,
-	emojiCompatibilityMode = true,
+  emojiCompatibilityMode = true,
 }: SwapFaviconProps) => {
   const links = document.querySelectorAll("link[rel='icon']");
 

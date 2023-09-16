@@ -15,7 +15,7 @@ export interface GenerateFaviconWithBadgeProps {
   font?: string;
   dotColor?: Color;
   innerDotColor?: Color;
-	countColor?: Color;
+  countColor?: Color;
   position?:
     | "top-left"
     | "top-right"
@@ -28,34 +28,39 @@ export interface GenerateFaviconWithBadgeProps {
  * Converts the size prop to a percentage.
  *
  * @param size Size value to convert.
+ * @param faviconSize The size of the favicon. Used to calculate the font-size, normalized to 32px
  * @returns { dot: number, fontSize: number }
  */
-const convertSize = (size: GenerateFaviconWithBadgeProps["size"] = 'md') => {
+const convertSize = (
+  size: GenerateFaviconWithBadgeProps["size"] = "md",
+  faviconSize: number,
+) => {
+  const multiplierFromSize = faviconSize / 32;
   switch (size) {
     case "xs":
       return {
         dot: 0.2,
-        fontSize: 14,
+        fontSize: 14 * multiplierFromSize,
       };
     case "sm":
       return {
         dot: 0.25,
-        fontSize: 18,
+        fontSize: 18 * multiplierFromSize,
       };
     case "md":
       return {
         dot: 0.3,
-        fontSize: 20,
+        fontSize: 20 * multiplierFromSize,
       };
     case "lg":
       return {
         dot: 0.35,
-        fontSize: 24,
+        fontSize: 24 * multiplierFromSize,
       };
     case "full":
       return {
         dot: 0.5,
-        fontSize: 32,
+        fontSize: 32 * multiplierFromSize,
       };
   }
 };
@@ -63,14 +68,14 @@ const convertSize = (size: GenerateFaviconWithBadgeProps["size"] = 'md') => {
 export const generateFaviconWithBadge = async (
   link: HTMLLinkElement,
   {
-		type,
-		count = null,
-		size = 'md',
-		font = 'sans-serif',
-		dotColor = "#ff0000",
-		innerDotColor = "#ffffff",
-		countColor = "#ffffff",
-		position = "top-right",
+    type,
+    count = null,
+    size = "md",
+    font = "sans-serif",
+    dotColor = "#ff0000",
+    innerDotColor = "#ffffff",
+    countColor = "#ffffff",
+    position = "top-right",
   }: GenerateFaviconWithBadgeProps,
 ) => {
   // Try to read size from favicon link. Use last size. If doesn't exist or "any", assume 32x32px
@@ -97,6 +102,9 @@ export const generateFaviconWithBadge = async (
     return "";
   }
 
+  // Clear canvas
+  context?.clearRect(0, 0, canvas.width, canvas.height);
+
   const faviconImage = await asyncLoadImage(link.href);
 
   // Draw image first
@@ -113,7 +121,7 @@ export const generateFaviconWithBadge = async (
   );
 
   // Determine the circle position based on the position prop and the circle size.
-  const dotRadius = faviconSize * convertSize(size).dot;
+  const dotRadius = faviconSize * convertSize(size, faviconSize).dot;
   const innerDotRadius = dotRadius / 4;
   let x = 0;
   let y = 0;
@@ -168,7 +176,7 @@ export const generateFaviconWithBadge = async (
 
   // Draw the count text, inside the circle badge on innerX, innerY coordinate. Only for count.
   if (type === "count" && count !== null) {
-    context.font = `${convertSize(size).fontSize}px ${font}`;
+    context.font = `${convertSize(size, faviconSize).fontSize}px ${font}`;
     context.textAlign = "center";
     context.textBaseline = "middle";
     context.fillStyle = countColor;

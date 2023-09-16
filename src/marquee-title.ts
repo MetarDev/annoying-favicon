@@ -14,7 +14,10 @@ export interface MarqueeTitleProps {
  * @param {number} [param0.interval] Marquee interval, how long to wait between scrolling letters (in milliseconds)
  * @returns {Interval}
  */
-export const marqueeTitle = ({ title, interval = 300 }: MarqueeTitleProps): ReturnType<typeof setInterval> => {
+export const marqueeTitle = ({
+  title,
+  interval = 300,
+}: MarqueeTitleProps): ReturnType<typeof setInterval> => {
   resetTitle();
   saveOriginalTitle();
   const fixedTitle = `${title.trim()} `;

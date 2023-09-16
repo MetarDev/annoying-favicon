@@ -5,11 +5,11 @@
  * @returns {Promise<HTMLImageElement>} The loaded image
  */
 export const asyncLoadImage = (url: string): Promise<HTMLImageElement> => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const image = new Image();
-    image.addEventListener('load', () => {
+    image.addEventListener("load", () => {
       resolve(image);
     });
     image.src = url;
   });
-}
+};
