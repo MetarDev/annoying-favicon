@@ -97,6 +97,9 @@ export const generateFaviconWithBadge = async (
     return "";
   }
 
+	// Clear canvas
+	context?.clearRect(0, 0, canvas.width, canvas.height);
+
   const faviconImage = await asyncLoadImage(link.href);
 
   // Draw image first

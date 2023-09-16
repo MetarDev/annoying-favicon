@@ -12,6 +12,9 @@ export const convertEmojiToImage = (emoji: string, size = 32) => {
 		return '';
 	}
 
+	// clear canvas.
+	context?.clearRect(0, 0, canvas.width, canvas.height);
+
   context.font = `${size - offset}px serif`;
   context.textAlign = "right";
   context.textBaseline = "bottom";
