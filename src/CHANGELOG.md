@@ -1,3 +1,8 @@
+## 0.2.2
+- Store references to canvases for different sizes
+- Clear canvas before drawing in each function
+- Scale the font size depending on canvas size (normalized to 32px)
+
 ## 0.2.1
 - Fix wrong type on `font` property of `addBadge()`
 

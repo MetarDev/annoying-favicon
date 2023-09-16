@@ -1,6 +1,6 @@
 {
   "name": "tabky-js",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A JS package for programatically manipulating your app's browser tab (favicon and title).",
   "source": "src/index.ts",
   "main": "./dist/tabky-js.js",
